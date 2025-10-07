@@ -1,0 +1,107 @@
+<!doctype html> 
+<html lang="uz">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Loyihalar — Tez kunda</title>
+
+  <!-- ✅ Rasmni oldindan yuklab qo'yamiz -->
+  <link rel="preload" as="image" href="36bg.png" fetchpriority="high">
+
+  <style>
+    :root{
+      --bg:#ffffff;         /* oq fon */
+      --card:#ffffff;       /* oq karta */
+      --fg:#0e1a1a;         /* matn rangi */
+      --muted:#55636a;
+      --accent:#2dc26b;     /* yashil badge */
+      --ring:rgba(255, 255, 255, 0.329);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:var(--bg); color:var(--fg);
+      font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
+      display:flex; align-items:center; justify-content:center;
+      overflow:hidden; position:relative;
+    }
+
+    /* ===== Siljiydigan fon (SEAMS YO'Q) ===== */
+    .bg{
+      position:absolute; inset:0; overflow:hidden; pointer-events:none; z-index:0;
+      background:#ffffff; /* toza oq */
+    }
+    /* Rasming nomi: 36bg.png (oq fonli, 36/30 konturli) */
+    .bg img{
+      position:absolute; left:50%; top:50%;
+      transform:translate(-50%,-50%);
+      /* rasmni oynadan ancha katta qilamiz — chetlar ko'rinmaydi */
+      width:140vw; height:auto; max-width:none;
+      will-change:transform;
+      animation:pan 15s linear infinite alternate;
+      /* tiniq ko'rinish uchun hech qanday opacity yoki filter yo'q */
+    }
+    /* Chap↔o‘ng + ozgina past↔tepaga yumshoq siljish */
+    @keyframes pan{
+      0%   { transform:translate(-52%,-50%) }
+      50%  { transform:translate(-48%,-49%) }
+      100% { transform:translate(-44%,-51%) }
+    }
+
+    /* ===== Kontent (oq tema) ===== */
+    .wrap,.card,footer{position:relative; z-index:1}
+    .wrap{ width:92%; max-width:520px; padding:20px; }
+    .card{
+      background:var(--card);
+      border-radius:16px;
+      box-shadow:0 12px 34px var(--ring);
+      padding:24px;
+      text-align:center;
+    }
+    h1{ font-size:22px; margin:10px 0; }
+    p{ margin:0 0 16px; color:var(--muted); font-size:14px; }
+    ul{ list-style:none; padding:0; margin:0; }
+    li{
+      background:#f2f5f9;
+      margin:8px 0; padding:12px;
+      border-radius:12px; font-weight:700; color:#1b2a30;
+      box-shadow: inset 0 0 0 1px rgba(16,24,40,.06);
+    }
+    .pill{
+      display:inline-block; padding:6px 12px; border-radius:999px;
+      background:rgba(0, 118, 253, 0.89); color:#ffffff;
+      font-weight:700; font-size:13px; margin-bottom:14px;
+    }
+    footer{
+      margin-top:20px; text-align:center; opacity:.7; font-size:12px; color:#ffffff;
+    }
+  </style>
+</head>
+<body>
+  <!-- Harakatlanadigan oq fon: rasmni transform bilan silkitemiz -->
+  <div class="bg" aria-hidden="true">
+    <!-- ✅ Darhol yuklash uchun atributlar qo'shildi -->
+    <img src="36bg.png" alt="" loading="eager" decoding="async" fetchpriority="high">
+  </div>
+
+  <!-- Kontent -->
+  <main class="wrap">
+    <section class="card">
+      <span class="pill">Tez kunda</span>
+      <h1>Loyihalar tayyorlanmoqda</h1>
+      <p>Quyidagi loyihalar tez orada ishga tushadi. QR orqali qaytib tekshirib turing 👇</p>
+      <ul>
+        <li>Day Vocab</li>
+        <li>The 30 Day</li>
+        <li>The 36 Day</li>
+      </ul>
+    </section>
+    <footer>© 2025 The 36 Day</footer>
+  </main>
+</body>
+</html>
+
+
+
+
+
